@@ -21,6 +21,7 @@ def memory_and_cpu_usage():
     return (cpu_usage, memory_usage)
 
 def run():
+    while True:
         host = socket.gethostname()
         ip = socket.gethostbyname(host)
 
@@ -31,6 +32,4 @@ def run():
 
         sql2.update_systeminfo(data)
 
-while True:
-     run()
-     time.sleep(3)
+        time.sleep(3)

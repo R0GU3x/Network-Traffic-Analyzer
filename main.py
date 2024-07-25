@@ -5,10 +5,15 @@ import Miscellaneous as m
 import Alerts
 import Model_Integration as ModelInt
 from Geo import Geo
+import socket
+import threading
+import Status
 
 sql = SQL('packets')
 if sql.table_existence_handler():
     sql.table_reset()
+
+threading.Thread(target=Status.run).start()
 
 sql3, geo = SQL('geo'), Geo('4a80dc2e1e6bec')
 if sql3.table_existence_handler():
@@ -75,8 +80,9 @@ def packet_callback(packet):
     # print(data)
     
     # DETECT ANOMALIES USING MACHINE MODEL
-    # if ModelInt.run(data):
-    #     sql.update_alert(data['serial'], 'unknown')
+    if parameters[protocol] != 'arp':
+        if ModelInt.run(data):
+            sql.update_alert(data['serial'], 'unknown')
 
     # attack_dic = {
     #     1: 'Blacklist',
@@ -87,17 +93,20 @@ def packet_callback(packet):
 
     attack = alert.check(data)
     if attack:
-        location = geo.fetch_json_data(data['dst_ip'])
-        if 'loc' in location.keys():
+        if socket.gethostbyname(socket.gethostname()) == data['src_ip']:
+            target_ip = data['dst_ip']
+        else:
+            target_ip = data['src_ip']
+        location = geo.fetch_json_data(target_ip)
+        if location and 'loc' in location.keys() and 'org'in location.keys():
             lat, long = location['loc'].split(',')
             geo_data = {'ip':location['ip'], 'org':location['org'], 'latitude':float(lat), 'longitude':float(long)}
             sql3.write(geo_data)
-            # print(location if location else None)
         sql.update_alert(data['serial'], 'Blacklist Detected')
 
 serial = 0
 interface, sniff_filter = 'Wi-Fi', 'tcp or udp or icmp or arp'
 # interface, sniff_filter = 'Wi-Fi', 'icmp'
-# interface, sniff_filter = 'VMware Network Adapter VMnet8', 'tcp or udp or icmp'
+# interface, sniff_filter = 'VMware Network Adapter VMnet8', 'tcp or udp or icmp or arp'
 alert = Alerts.Alert()
 sc.sniff(iface=interface, filter=sniff_filter, prn=packet_callback, store=0)

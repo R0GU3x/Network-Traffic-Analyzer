@@ -9,9 +9,9 @@ import time
 a = time.time()
 
 # Load pre-trained models
-with open('preprocessor.pkl', 'rb') as file:
+with open(r'core\models\preprocessor.pkl', 'rb') as file:
     preprocessor = pickle.load(file)
-with open('iso_forest_model.pkl', 'rb') as file:
+with open(r'core\models\iso_forest_model.pkl', 'rb') as file:
     iso_forest_model = pickle.load(file)
 
 # Preprocess the captured packet

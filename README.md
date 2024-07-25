@@ -1,4 +1,4 @@
-<img src="images/xylem.png" alt="Example Image" width="100">
+<img src="images/x.png" alt="Example Image" width="100">
 
 # Xylem - Network Analyzer
 

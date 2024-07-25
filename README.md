@@ -1,9 +1,10 @@
-![Xylem.png](images/xylem.png)
+<img src="images/xylem.png" alt="Example Image" width="100">
 
 # Xylem - Network Analyzer
 
 ## Introduction
-Xylem is a powerful network analyzer designed to enhance cybersecurity by using advanced machine learning algorithms to detect and respond to zero-day vulnerabilities. Developed during a 36-hour hackathon at Parul University, Gujarat, organized by Onsite, Xylem provides real-time insights into network traffic and potential threats.
+- Xylem is a powerful network analyzer designed to enhance cybersecurity by using advanced machine learning algorithms to detect and respond to zero-day vulnerabilities.
+- Xylem provides real-time insights into network traffic and potential threats.
 
 ## Features
 - **User-friendly Dashboard:** A comprehensive dashboard with 13 distinct panels displaying real-time traffic flow information.
@@ -13,65 +14,39 @@ Xylem is a powerful network analyzer designed to enhance cybersecurity by using 
 - **Detailed Logging:** Provides thorough threat inspection logs.
 
 ## Technologies Used
-- **Back-end:** Python
-- **Database:** MySQL
-- **Front-end:** Grafana
-- **Machine Learning:** Integrated algorithms for threat detection
-
-## Installation
-1. **Clone the repository:**
-    ```bash
-    git clone https://github.com/yourusername/Xylem.git
-    ```
-2. **Navigate to the project directory:**
-    ```bash
-    cd Xylem
-    ```
-3. **Set up a virtual environment:**
-    ```bash
-    python3 -m venv venv
-    source venv/bin/activate  # On Windows use `venv\Scripts\activate`
-    ```
-4. **Install the required dependencies:**
-    ```bash
-    pip install -r requirements.txt
-    ```
-5. **Set up the MySQL database:**
-    - Create a new database.
-    - Update the database configuration in the `config.py` file with your database details.
-
-6. **Run the application:**
-    ```bash
-    python app.py
-    ```
+- **Back-end:** [Python](https://www.python.org/downloads/)
+- **Database:** [MySQL](https://dev.mysql.com/downloads/mysql/)
+- **Front-end:** [Grafana](https://grafana.com/grafana/download)
+- **Machine Learning:** Isolation Forest
 
 ## Usage
-1. **Access the Dashboard:**
-    - Navigate to `http://localhost:3000` to access the Grafana dashboard.
-    - Login with the default credentials (admin/admin) and set up your dashboard.
+> ### NOTE
+> Make sure to edit **SQL.py** file and replace the **username** and **password** values with your credentials
 
-2. **Monitoring Network Traffic:**
-    - The dashboard will display real-time traffic flow and detected threats.
+1. Run the **grafana-server.exe** file <br>
+2. Open the URL `http://localhost:3000` in your browser <br>
+3. Dashboard → Import Dashboard and import the **Xylem Dashboard.json** file <br>
+4. Run the **main.py** file <br>
 
-## Contributing
-We welcome contributions to enhance Xylem! To contribute:
-1. Fork the repository.
-2. Create a new branch: `git checkout -b feature-name`
-3. Make your changes and commit them: `git commit -m 'Add some feature'`
-4. Push to the branch: `git push origin feature-name`
-5. Open a pull request.
+## SCREENSHOTS
+- ### Screenshot 1
+    ![main-dashboard](/images/s.png) <br><br>
+    Default Xylem Dashboard
+- ### Screenshot 2
+    ![main-dashboard](/images/ss.png) <br><br>
+    Xylem Dashboard indicating presence of malicious activity in the network
+- ### Screnshot 3
+    ![main-dashboard](/images/sss.png) <br><br>
+    Geographical Representaion of the threat actor's location traced by Xylem
 
-## License
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
-
-## Contact
-For any questions or suggestions, feel free to reach out:
-- **Email:** your.email@example.com
-- **LinkedIn:** [Your LinkedIn Profile](https://www.linkedin.com/in/yourprofile)
-
-## Acknowledgements
-Special thanks to my teammates Vaibhav, Mansvi, and Riya, and our mentor Sandip Jha for their support and guidance during the development of Xylem.
-
+## About US
+### Team Name
+Glyph
+### Members
+- [Raman Biju](https://www.linkedin.com/in/raman-biju/)
+- [Manasvi Kakuste](https://www.linkedin.com/in/manasvi-ujwal-kakuste-5a281922a/)
+- [Vaibhav Patil](https://www.linkedin.com/in/contact-vaibhav-patil/)
+- [Riya Awalkar](https://www.linkedin.com/in/riya-awalkar-15j2004/)
+    
 ## Links
-- **YouTube:** [Project Demo](https://youtube.com/link)
-- **GitHub:** [Repository](https://github.com/yourusername/Xylem)
+### [YouTube](https://youtu.be/C0G3dnGQYAg?si=-HpLKyIAGzGtCEds)

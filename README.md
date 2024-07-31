@@ -21,7 +21,7 @@
 
 ## Usage
 > ### NOTE
-> Make sure to edit **SQL.py** file and replace the **username** and **password** values with your credentials
+> Make sure to edit **SQL.py** file and replace the **username** and **password** values with your MySQL credentials
 
 1. Run the **grafana-server.exe** file <br>
 2. Open the URL `http://localhost:3000` in your browser <br>
